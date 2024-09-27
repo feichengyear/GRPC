@@ -1,0 +1,25 @@
+cmake_minimum_required(VERSION 3.0.0)
+#设置C++的编译版本，其中CMAKE_CXX_STANDARD是固定的，11代表C++11
+set(CMAKE_CXX_STANDARD 11)
+ 
+#设置项目名称
+project(school VERSION 0.1.0)
+ 
+# 定义变量
+# 静态库生成的路径
+set(LIB_PATH ${CMAKE_CURRENT_SOURCE_DIR}/lib)
+# 测试程序生成的路径
+set(EXEC_PATH ${CMAKE_CURRENT_SOURCE_DIR}/bin)
+# 头文件目录
+set(HEAD_PATH ${CMAKE_CURRENT_SOURCE_DIR}/include)
+# 静态库的名字(静态库项目名称),他们两者公用一个，其实他们一毛钱关系都没有，可以单独设置，这里为了方便设置成一样
+set(STUDENT_LIB student)
+set(TEACHER_LIB teacher)
+# 可执行程序的名字（可执行文件的项目名）,他们两者公用一个，其实他们一毛钱关系都没有，可以单独设置，这里为了方便设置成一样
+set(STUDENT_TEST student_test)
+set(TEACHER_TEST teacher_test)
+# 添加子目录，参数是项目名称
+add_subdirectory(${STUDENT_LIB})
+add_subdirectory(${TEACHER_LIB})
+add_subdirectory(${STUDENT_TEST})
+add_subdirectory(${TEACHER_TEST})
